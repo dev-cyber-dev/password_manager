@@ -25,7 +25,7 @@ def test_get_password():
 def test_search_password():
     client.post("/password/yandex", json={"password": "supersecret"})
     client.post("/password/google", json={"password": "googlesupersecret"})
-    response = client.get("/password/?service_name=yun")
+    response = client.get("/password/?service_name=yan")
     assert response.status_code == 200
     data = response.json()
     assert any(p["service_name"] == "yandex" for p in data)
